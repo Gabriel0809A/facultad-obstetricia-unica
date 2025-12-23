@@ -1,7 +1,4 @@
-/**
- * js/layout.js
- * Versión Final: Enlaces alineados a la derecha y guinda más claro.
- */
+
 function cargarLayout(rutaBase) {
     if (!rutaBase) rutaBase = "./";
 
@@ -146,4 +143,5 @@ function cargarLayout(rutaBase) {
     
     if(footerEl) footerEl.innerHTML = footerHTML;
 }
+
 
