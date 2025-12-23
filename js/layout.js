@@ -5,6 +5,19 @@
 function cargarLayout(rutaBase) {
     if (!rutaBase) rutaBase = "./";
 
+        // --- AUTO-FAVICON ---
+    let favicon = document.querySelector("link[rel~='icon']");
+    
+    if (!favicon) {
+        favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        document.head.appendChild(favicon);
+    }
+    favicon.type = 'image/png';
+    favicon.sizes = 'any'; 
+    favicon.href = rutaBase + 'img/icon.png';
+
+    
     // Detectar página actual
     const path = window.location.pathname;
     const esInicio = path.includes("index.html") || path === "/" || path.endsWith("/");
@@ -133,3 +146,4 @@ function cargarLayout(rutaBase) {
     
     if(footerEl) footerEl.innerHTML = footerHTML;
 }
+
