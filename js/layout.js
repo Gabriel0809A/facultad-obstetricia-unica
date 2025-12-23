@@ -1,10 +1,8 @@
-
 function cargarLayout(rutaBase) {
     if (!rutaBase) rutaBase = "./";
 
-        // --- AUTO-FAVICON ---
+    // --- 1. AUTO-FAVICON  ---
     let favicon = document.querySelector("link[rel~='icon']");
-    
     if (!favicon) {
         favicon = document.createElement('link');
         favicon.rel = 'icon';
@@ -12,9 +10,8 @@ function cargarLayout(rutaBase) {
     }
     favicon.type = 'image/png';
     favicon.sizes = 'any'; 
-    favicon.href = rutaBase + 'img/icon.png';
+    favicon.href = rutaBase + 'img/icon.png'; 
 
-    
     // Detectar página actual
     const path = window.location.pathname;
     const esInicio = path.includes("index.html") || path === "/" || path.endsWith("/");
@@ -22,20 +19,30 @@ function cargarLayout(rutaBase) {
     const esAcademico = path.includes("secciones/academico.html");
     const esNoticias = path.includes("secciones/noticias.html");
 
-    // Estilos de enlaces (Texto gris oscuro, hover guinda brillante)
-    const getLinkClass = (activo) => {
-        if (activo) {
-            // Activo: Texto color guinda vivo y borde abajo
-            return "text-[#9d174d] font-bold border-b-2 border-[#9d174d] pb-1 transition-colors";
+    // Función de estilos 
+    const getLinkClass = (activo, esMovil = false) => {
+        // Base de estilos
+        let clases = "transition-colors font-medium ";
+        
+        if (esMovil) {
+            // Estilos para el menú móvil (bloque, padding grande)
+            clases += "block px-4 py-3 rounded-md text-base ";
+            if (activo) return clases + "bg-pink-50 text-[#9d174d] font-bold";
+            return clases + "text-gray-600 hover:bg-gray-50 hover:text-[#9d174d]";
         } else {
-            // Inactivo: Texto gris, hover guinda
-            return "text-gray-600 font-medium hover:text-[#9d174d] transition-colors pb-1 border-b-2 border-transparent hover:border-pink-200";
+            // Estilos para escritorio 
+            if (activo) {
+                return "text-[#9d174d] font-bold border-b-2 border-[#9d174d] pb-1 transition-colors";
+            } else {
+                return "text-gray-600 font-medium hover:text-[#9d174d] transition-colors pb-1 border-b-2 border-transparent hover:border-pink-200";
+            }
         }
     };
 
+    // --- 2. HEADER HTML ---
     const headerHTML = `
     <header class="bg-white shadow-sm sticky top-0 z-50 font-sans h-24">
-        <div class="max-w-7xl mx-auto px-4 h-full flex items-center">
+        <div class="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
             
             <a href="${rutaBase}welcome.html" class="flex items-center gap-4 group text-decoration-none mr-4">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQI0dUBOiv4nqtaYTyn6F7DKF_aNKOkjyFqPw&s" alt="UNICA" class="h-14 w-auto object-contain">
@@ -64,15 +71,28 @@ function cargarLayout(rutaBase) {
                 </a>
             </div>
 
-            <button class="md:hidden ml-auto text-gray-600 text-2xl focus:outline-none hover:text-[#9d174d]">
+            <button id="mobile-menu-btn" class="md:hidden ml-auto text-gray-600 text-3xl focus:outline-none hover:text-[#9d174d] p-2">
                 <i class="fas fa-bars"></i>
             </button>
 
         </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="${rutaBase}index.html" class="${getLinkClass(esInicio, true)}">Inicio</a>
+                <a href="${rutaBase}secciones/nosotros.html" class="${getLinkClass(esNosotros, true)}">Nosotros</a>
+                <a href="${rutaBase}secciones/academico.html" class="${getLinkClass(esAcademico, true)}">Académico</a>
+                <a href="${rutaBase}secciones/noticias.html" class="${getLinkClass(esNoticias, true)}">Noticias</a>
+                
+                <a href="https://aulavirtual.unica.edu.pe" target="_blank" class="block w-full text-center mt-4 bg-[#9d174d] text-white px-5 py-3 rounded-lg hover:bg-[#831843] font-bold">
+                    <i class="fas fa-chalkboard-user mr-2"></i> Aula Virtual
+                </a>
+            </div>
+        </div>
     </header>
     `;
 
-// --- 2. FOOTER (Traducción exacta de tu React) ---
+    // --- 3. FOOTER  ---
     const footerHTML = `
     <footer class="bg-slate-900 text-white py-12 border-t-4 border-guinda-800 font-sans mt-auto">
         <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-4 gap-8">
@@ -132,16 +152,30 @@ function cargarLayout(rutaBase) {
     </footer>
     `;
 
+    // --- 4. INYECTAR Y ACTIVAR ---
     const headerEl = document.getElementById('layout-header');
     const footerEl = document.getElementById('layout-footer');
+
     if(headerEl) {
         headerEl.innerHTML = headerHTML;
-        // ¡ESTA ES LA MAGIA! 👇
-        // Convertimos el DIV contenedor en sticky, así se queda pegado al body.
         headerEl.className = "sticky top-0 z-50 w-full"; 
+
+        // === ESTA ES LA PARTE DEL CELULAR ===
+        const btnMenu = document.getElementById('mobile-menu-btn');
+        const menuMovil = document.getElementById('mobile-menu');
+
+        if (btnMenu && menuMovil) {
+            btnMenu.addEventListener('click', () => {
+                // Alternar la clase 'hidden' para mostrar/ocultar
+                menuMovil.classList.toggle('hidden');
+            });
+        }
     }
     
     if(footerEl) footerEl.innerHTML = footerHTML;
 }
+
+
+
 
 
