@@ -52,12 +52,11 @@
 
     <script src="../js/layout.js"></script>
     <script>
-        // Usamos '../' porque estamos dentro de la carpeta 'secciones'
         cargarLayout('../'); 
     </script>
 
     <script>
-        // 1. Array de Datos (Copiado exacto de tu React)
+        // 1. Array de Datos
         const articles = [
             {
                 date: "15 OCT",
@@ -103,7 +102,7 @@
             }
         ];
 
-        // 2. Función para renderizar (dibujar) las noticias
+        // 2. Función para renderizar las noticias
         function renderNoticias() {
             const container = document.getElementById('grid-noticias');
             container.innerHTML = ''; // Limpiamos por si acaso
@@ -140,4 +139,5 @@
     </script>
 </body>
 </html>
+
 
