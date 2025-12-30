@@ -134,20 +134,31 @@ document.addEventListener('DOMContentLoaded', () => {
         const typingId = showTypingIndicator();
 
         try {
+            // TRUCO: Verificamos si ya hay mensajes previos en el historial
+            const historialPrevio = JSON.parse(sessionStorage.getItem(HISTORY_KEY) || '[]');
+            const reglaSaludo = historialPrevio.length > 0 
+                ? "YA ESTAMOS CONVERSANDO: NO saludes con 'Hola' otra vez. Ve directo a la respuesta." 
+                : "Es la primera interacción: Saluda con un '¡Hola!' enérgico.";
+            
             // Preparar el prompt con el contexto
             const PROMPT = `
-                ROL: Eres el Asistente Virtual Oficial de la Facultad de Obstetricia de la UNICA.
+                ROL: Eres el Asistente Virtual de la Facultad de Obstetricia de la UNICA. Tu nombre es "Asistente Obstetricia".
+                
+                PERSONALIDAD:
+                - Tu tono es AMIGABLE, ENÉRGICO y JOVIAL (como un compañero estudiante que ayuda).
+                - ${reglaSaludo}
+                - Evita el lenguaje burocrático aburrido. Sé directo y claro.
+                - Usa emojis ocasionalmente (✨, 📚, 🩺) para darle vida al texto.
                 
                 CONTEXTO (Tu conocimiento base):
                 ${CONOCIMIENTO_FACULTAD || "No se cargó el contexto, usa tu conocimiento general sobre la UNICA."}
                 
                 INSTRUCCIONES DE COMPORTAMIENTO:
-                1. BÁSATE EXCLUSIVAMENTE en el "CONTEXTO" proporcionado arriba para responder.
-                2. SI LA PREGUNTA NO ES SOBRE la Facultad, la Universidad (UNICA), trámites académicos o la carrera de Obstetricia:
-                   - DEBES RESPONDER: "Lo siento, soy un asistente especializado en la Facultad de Obstetricia y no puedo hablar sobre otros temas."
-                   - NO respondas preguntas de cultura general, deportes, matemáticas complejas fuera de la carrera, ni chistes.
-                3. Sé siempre amable, empático y profesional (trata al usuario de "usted" o de forma académica).
-                4. Respuestas cortas y directas (máximo 3 párrafos).
+                1. BÁSATE EXCLUSIVAMENTE en el "CONTEXTO" arriba para responder.
+                2. SI LA PREGUNTA NO ES SOBRE la Facultad o la carrera:
+                   - Diles amablemente: "Uy, ahí si me atrapaste 😅. Solo sé cosas sobre nuestra Facultad de Obstetricia."
+                3. IMPORTANTE PARA VOZ: No escribas palabras con barras como "alumno/a" o "el/la", porque al leerlo suena mal. Escribe neutro o directo (ej: "estudiantes", "docentes").
+                4. Respuestas cortas (máximo 2 o 3 frases si es posible).
                 
                 PREGUNTA DEL USUARIO:
                 ${text}
@@ -234,9 +245,10 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     function speakText(text) {
         if (!synth) return;
-        const cleanText = text.replace(/[*#_]/g, ''); 
+        const cleanText = text.replace(/([\uD800-\uDBFF][\uDC00-\uDFFF]|[*#_])/g, ''); 
+        
         const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.lang = 'es-US'; 
+        utterance.lang = 'es-PE'; 
         const preferredVoice = voices.find(v => v.lang.includes('es') && v.name.includes('Google'));
         if (preferredVoice) utterance.voice = preferredVoice;
         synth.speak(utterance);
@@ -270,6 +282,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         micBtn.addEventListener('click', () => {
+            if (synth) synth.cancel();
             try { recognition.start(); } catch(e) {}
         });
     } else {
