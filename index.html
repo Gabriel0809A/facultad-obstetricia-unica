@@ -47,7 +47,6 @@
     </style>
 
     <script>
-        // Si NO existe la marca 'introShown', mandar a welcome.html
         if (sessionStorage.getItem('introShown') !== 'true') {
             window.location.href = 'welcome.html';
         }
@@ -219,7 +218,6 @@
 
     <script src="js/layout.js"></script>
     <script>
-        // 1. Cargar el Header y Footer
         cargarLayout('./');
 
         // 2. Lógica de Pestañas (Misión/Visión)

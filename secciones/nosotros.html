@@ -385,20 +385,16 @@
 
     <script src="../js/layout.js"></script>
     <script>
-        // Cargar header/footer
         cargarLayout('../');
 
-        // Lógica de Javascript para las Pestañas (Reemplaza al useState de React)
         function cambiarTab(tabName) {
-            // 1. Ocultar todos los contenidos
+
             document.getElementById('tab-autoridades').classList.remove('active');
             document.getElementById('tab-docentes').classList.remove('active');
-            
-            // 2. Desactivar estilos de botones
+
             document.getElementById('btn-autoridades').classList.remove('active', 'border-guinda-600', 'text-guinda-800');
             document.getElementById('btn-docentes').classList.remove('active', 'border-guinda-600', 'text-guinda-800');
 
-            // 3. Mostrar el seleccionado
             document.getElementById('tab-' + tabName).classList.add('active');
             document.getElementById('btn-' + tabName).classList.add('active');
         }

@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     // 1. CONFIGURACIÓN
     // ============================================================
-    const HISTORY_KEY = 'chat_obstetricia_prod'; // Clave final
+    const HISTORY_KEY = 'chat_obstetricia_prod'; 
     let recognition;
     const synth = window.speechSynthesis;
     let isVoiceMode = false;
@@ -18,9 +18,13 @@ document.addEventListener('DOMContentLoaded', () => {
     async function cargarConocimiento() {
         try {
             const res = await fetch('/conocimiento.txt'); 
-            if (res.ok) CONOCIMIENTO_FACULTAD = await res.text();
-            console.log("Cerebro cargado: " + (CONOCIMIENTO_FACULTAD.length > 0 ? "OK" : "Vacío"));
-        } catch (e) { console.error("No se encontró conocimiento.txt", e); }
+            if (res.ok) {
+                CONOCIMIENTO_FACULTAD = await res.text();
+                console.log("Cerebro cargado correctamente.");
+            } else {
+                console.warn("El archivo existe pero no se pudo leer.");
+            }
+        } catch (e) { console.error("Error cargando conocimiento:", e); }
     }
     cargarConocimiento();
 
@@ -132,10 +136,21 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             // Preparar el prompt con el contexto
             const PROMPT = `
-                Actúa como asistente oficial de Obstetricia UNICA.
-                CONTEXTO: ${CONOCIMIENTO_FACULTAD || "Sin datos de contexto disponibles."}
-                INSTRUCCIONES: Responde de forma amable y breve (máximo 2 párrafos).
-                PREGUNTA USUARIO: ${text}
+                ROL: Eres el Asistente Virtual Oficial de la Facultad de Obstetricia de la UNICA.
+                
+                CONTEXTO (Tu conocimiento base):
+                ${CONOCIMIENTO_FACULTAD || "No se cargó el contexto, usa tu conocimiento general sobre la UNICA."}
+                
+                INSTRUCCIONES DE COMPORTAMIENTO:
+                1. BÁSATE EXCLUSIVAMENTE en el "CONTEXTO" proporcionado arriba para responder.
+                2. SI LA PREGUNTA NO ES SOBRE la Facultad, la Universidad (UNICA), trámites académicos o la carrera de Obstetricia:
+                   - DEBES RESPONDER: "Lo siento, soy un asistente especializado en la Facultad de Obstetricia y no puedo hablar sobre otros temas."
+                   - NO respondas preguntas de cultura general, deportes, matemáticas complejas fuera de la carrera, ni chistes.
+                3. Sé siempre amable, empático y profesional (trata al usuario de "usted" o de forma académica).
+                4. Respuestas cortas y directas (máximo 3 párrafos).
+                
+                PREGUNTA DEL USUARIO:
+                ${text}
             `;
 
             // --- LLAMADA AL BACKEND REAL ---
@@ -149,12 +164,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
             
-            // Adaptar según tu respuesta JSON (Ajusta esto si tu backend devuelve otra cosa)
+            // Adaptar según tu respuesta JSON 
             let botReply = "No pude procesar la respuesta.";
             if (data.candidates && data.candidates[0].content && data.candidates[0].content.parts) {
-                botReply = data.candidates[0].content.parts[0].text; // Estructura Gemini
+                botReply = data.candidates[0].content.parts[0].text; 
             } else if (data.result) {
-                botReply = data.result; // Estructura genérica
+                botReply = data.result; 
             } else if (data.reply) {
                 botReply = data.reply;
             }
@@ -165,7 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
             renderMessage(botReply, 'bot');
             saveToHistory(botReply, 'bot');
 
-            // 4. Hablar (Si estaba activado por voz)
+            // 4. Hablar 
             if (isVoiceMode) {
                 speakText(botReply);
                 isVoiceMode = false;

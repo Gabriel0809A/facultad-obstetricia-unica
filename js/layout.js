@@ -21,16 +21,13 @@ function cargarLayout(rutaBase) {
 
     // Función de estilos 
     const getLinkClass = (activo, esMovil = false) => {
-        // Base de estilos
         let clases = "transition-colors font-medium ";
         
         if (esMovil) {
-            // Estilos para el menú móvil (bloque, padding grande)
             clases += "block px-4 py-3 rounded-md text-base ";
             if (activo) return clases + "bg-pink-50 text-[#9d174d] font-bold";
             return clases + "text-gray-600 hover:bg-gray-50 hover:text-[#9d174d]";
         } else {
-            // Estilos para escritorio 
             if (activo) {
                 return "text-[#9d174d] font-bold border-b-2 border-[#9d174d] pb-1 transition-colors";
             } else {
@@ -166,7 +163,6 @@ function cargarLayout(rutaBase) {
 
         if (btnMenu && menuMovil) {
             btnMenu.addEventListener('click', () => {
-                // Alternar la clase 'hidden' para mostrar/ocultar
                 menuMovil.classList.toggle('hidden');
             });
         }

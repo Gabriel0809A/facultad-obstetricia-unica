@@ -52,7 +52,6 @@
 
     <script src="../js/layout.js"></script>
     <script>
-        // Usamos '../' porque estamos dentro de la carpeta 'secciones'
         cargarLayout('../'); 
     </script>
 
@@ -106,10 +105,9 @@
         // 2. Función para renderizar las noticias
         function renderNoticias() {
             const container = document.getElementById('grid-noticias');
-            container.innerHTML = ''; // Limpiamos por si acaso
+            container.innerHTML = ''; 
 
             articles.forEach(article => {
-                // Creamos el HTML de cada tarjeta usando Template Strings
                 const cardHTML = `
                 <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
                     <div class="relative h-48">
@@ -130,12 +128,10 @@
                     </div>
                 </article>
                 `;
-                // Añadimos la tarjeta al contenedor
                 container.innerHTML += cardHTML;
             });
         }
 
-        // 3. Ejecutamos la función al cargar
         renderNoticias();
     </script>
 

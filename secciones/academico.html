@@ -25,11 +25,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
     <style>
-        /* Lógica visual de las pestañas */
         .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
         .tab-content.active { display: block; }
-        
-        /* Estilos de botones de pestañas principales */
         .tab-btn { border-bottom: 3px solid transparent; }
         .tab-btn.active { color: #9d174d; border-bottom-color: #9d174d; font-weight: 700; }
         
@@ -223,7 +220,6 @@
 
         // ==========================================
         // 2. DATOS DE LA MALLA CURRICULAR
-        // (Copiados de tu código React)
         // ==========================================
         const curriculumData = {
             generales: {
@@ -259,12 +255,8 @@
         // 3. LÓGICA DE PESTAÑAS PRINCIPALES
         // ==========================================
         function openTab(tabName) {
-            // Ocultar todos los contenidos
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            // Quitar clase active de botones
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
-            // Mostrar seleccionado
             document.getElementById('tab-' + tabName).classList.add('active');
             document.getElementById('btn-' + tabName).classList.add('active');
         }
@@ -275,14 +267,8 @@
         function renderMalla(cycleKey) {
             const data = curriculumData[cycleKey];
             const tbody = document.getElementById('malla-body');
-            
-            // 1. Actualizar Título
             document.getElementById('malla-titulo').innerText = data.title;
-
-            // 2. Limpiar tabla actual
             tbody.innerHTML = '';
-
-            // 3. Generar filas nuevas
             data.courses.forEach(course => {
                 const row = `
                     <tr class="hover:bg-gray-50 transition">
@@ -295,7 +281,7 @@
                 tbody.innerHTML += row;
             });
 
-            // 4. Actualizar estilos de los botones (tarjetas) de ciclo
+            // 4. Actualizar estilos de las tarjetas de ciclo
             ['generales', 'especialidad', 'internado'].forEach(key => {
                 const card = document.getElementById('cycle-' + key);
                 const number = card.querySelector('.cycle-number');
@@ -311,28 +297,19 @@
                 }
             });
         }
-
-        // Cargar por defecto la especialidad (como en tu React)
         renderMalla('especialidad');
 
         // =========================================================
         // 4. SOLUCIÓN FINAL: SIMULACIÓN DE CLIC
         // =========================================================
         window.addEventListener('load', function() {
-            // Leemos la URL (ej: #campo)
             const hash = window.location.hash.replace('#', '');
             
-            // Validamos que sea una de las opciones reales
             if (hash === 'malla' || hash === 'campo' || hash === 'perfil') {
-                
-                // Buscamos el BOTÓN correspondiente
                 const btnObjetivo = document.getElementById('btn-' + hash);
-                
                 if (btnObjetivo) {
                     // Esperamos un instante (50ms) para asegurar que todo esté cargado visualmente
                     setTimeout(() => {
-                        // ¡HACEMOS CLIC AUTOMÁTICO!
-                        // Esto obliga a que se ejecute openTab() con todas sus consecuencias.
                         btnObjetivo.click(); 
                     }, 50);
                 }
