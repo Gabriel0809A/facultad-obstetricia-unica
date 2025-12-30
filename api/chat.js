@@ -33,7 +33,7 @@ export default async function handler(req) {
         }
 
         // 5. Petición a Google (REST API Directa)
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+        const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${API_KEY}`;
         // NOTA: Cambié a 'gemini-1.5-flash' que es más rápido y barato que 'gemini-pro', pero puedes usar el que gustes.
 
         const requestBody = {
