@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido - Facultad de Obstetricia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+               pink: { 200: '#fbcfe8' } 
+            },
+            fontFamily: {
+              // Inter para textos normales
+              sans: ['Inter', 'sans-serif'],
+              // Playfair Display SOLO para el título elegante
+              serif: ['Playfair Display', 'serif'],
+            },
+            animation: {
+                'fade-in': 'fadeIn 1s ease-in',
+                'bounce-slow': 'bounce-slow 2s infinite',
+            },
+            keyframes: {
+                fadeIn: { from: { opacity: '0' }, to: { opacity: '1' } },
+                'bounce-slow': {
+                    '0%, 100%': { transform: 'translateY(-15%)', animationTimingFunction: 'cubic-bezier(0.8, 0, 1, 1)' },
+                    '50%': { transform: 'translateY(0)', animationTimingFunction: 'cubic-bezier(0, 0, 0.2, 1)' },
+                }
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+        .hero-bg {
+            background-image: 
+                linear-gradient(rgba(88, 28, 67, 0.60), rgba(60, 10, 30, 0.65)),
+                url('img/fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        .fade-in { animation: fadeIn 1s ease-in; }
+    </style>
+</head>
+
+<body>
+
+    <div 
+        id="welcome-container"
+        class="hero-bg flex items-center justify-center h-screen w-screen cursor-pointer text-white text-center"
+        onclick="handleEnter()"
+    >
+
+        <div class="absolute top-6 left-6 z-20 fade-in">
+            <img 
+                src="https://www.unica.edu.pe/transparencia/img/unica.png" 
+                alt="UNICA Logo" 
+                class="h-16 md:h-24" 
+            />
+        </div>
+
+        <div class="z-10 relative fade-in flex flex-col items-center justify-center h-full w-full">
+            
+            <div class="flex-grow flex flex-col items-center justify-center">
+                
+                  <h1 class="text-4xl md:text-6xl font-light tracking-tight font-serif">
+                    Facultad de Obstetricia
+                </h1>
+
+                <p class="text-xl md:text-2xl mt-4 font-light text-pink-200 font-sans">
+                    Universidad Nacional San Luis Gonzaga
+                </p>
+            </div>
+
+            <div class="w-full pb-12">
+                <p class="animate-bounce-slow text-lg font-semibold text-white/80 font-sans">
+                    Haz clic para comenzar
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const rutaImagen = 'img/icon.png'; 
+            let favicon = document.querySelector("link[rel~='icon']");
+
+            if (!favicon) {
+                favicon = document.createElement('link');
+                favicon.rel = 'icon';
+                document.head.appendChild(favicon);
+            }
+
+            // 4. Asignar propiedades
+            favicon.type = 'image/png';
+            favicon.sizes = 'any'; 
+            favicon.href = rutaImagen;
+        });
+    </script>
+
+    <script>
+        function handleEnter() {
+            sessionStorage.setItem('introShown', 'true');
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>
+

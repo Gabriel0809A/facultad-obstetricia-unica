@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosotros - Facultad de Obstetricia</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              guinda: { 600: '#93181d', 800: '#731317', 900: '#530e10' }
+            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        .tab-content { display: none; }
+        .tab-content.active { display: block; animation: fadeIn 0.5s; }
+        .tab-btn.active { color: #731317; border-bottom: 2px solid #731317; } /* Estilo activo manual */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <div id="layout-header"></div>
+
+    <main class="flex-grow">
+        <section id="nosotros" class="py-20 bg-gray-50 scroll-mt-20">
+            <div class="max-w-7xl mx-auto px-4">
+                
+                <div class="text-center mb-12">
+                    <span class="text-guinda-600 font-bold tracking-widest uppercase text-sm">Organización y Liderazgo</span>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Autoridades y Docentes</h3>
+                </div>
+
+                <div class="flex flex-wrap justify-center border-b border-gray-300 mb-8 gap-4">
+                    <button onclick="cambiarTab('autoridades')" id="btn-autoridades" class="tab-btn active px-6 py-3 text-lg text-gray-600 hover:text-guinda-800 transition font-medium">
+                        Autoridades
+                    </button>
+                    <button onclick="cambiarTab('docentes')" id="btn-docentes" class="tab-btn px-6 py-3 text-lg text-gray-600 hover:text-guinda-800 transition font-medium">
+                        Plana Docente
+                    </button>
+                </div>
+
+                <div id="tab-autoridades" class="tab-content active">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <div class="bg-gray-100 p-4 flex-shrink-0 text-center">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=99061&ruta=/documents/docInvestigadores/99061/imagenes/20161207_093651.jpg&content_type=image/jpeg" alt="Dra. Rosa" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow text-center">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. Rosa Elvira Ruiz Reyes</h5>
+                                <p class="text-sm text-gray-500 mb-2 flex-grow">Decana de la Facultad</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <div class="bg-gray-100 p-4 flex-shrink-0 text-center">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=107687&ruta=/documents/docInvestigadores/107687/imagenes/27331824_1498448746920250_3610261087589107476_n.jpg&content_type=image/jpeg" alt="Dra. Carmen" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow text-center">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. Carmen Rosa Laos</h5>
+                                <p class="text-sm text-gray-500 mb-2 flex-grow">Directora de Escuela Profesional</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <div class="bg-gray-100 p-4 flex-shrink-0 text-center">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=98812&ruta=/documents/docInvestigadores/98812/imagenes/IMG_1757.JPG&content_type=image/jpeg" alt="Dr. Silverio" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow text-center">
+                                <h5 class="text-lg font-bold text-guinda-900">Dr. Silverio Alejo Huamaní</h5>
+                                <p class="text-sm text-gray-500 mb-2 flex-grow">Director de Departamento Académico</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
+                            <div class="bg-gray-100 p-4 flex-shrink-0 text-center">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=2906&ruta=/documents/docInvestigadores/2906/imagenes/carmen-chauca.jpg&content_type=image/jpeg" alt="Dra. Carmen L" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6 flex flex-col flex-grow text-center">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. Carmen Luisa Chauca</h5>
+                                <p class="text-sm text-gray-500 mb-2 flex-grow">Directora de Unidad de Investigación</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div id="tab-docentes" class="tab-content">
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        
+ 
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=98812&ruta=/documents/docInvestigadores/98812/imagenes/IMG_1757.JPG&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dr. SILVERIO ALEJO HUAMANI</h5>
+                                <p class="text-sm text-gray-500 mb-4">Docente Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=98812" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=82173&ruta=/documents/docInvestigadores/82173/imagenes/foto%20%20Ivonne.JPG&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. BOADA CAVERO IVONNE ALEIDA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=82173" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=428640&ruta=/documents/docInvestigadores/428640/imagenes/foto.JPG&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. CHAVEZ GALVEZ OFELIA ESTHER</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=428640" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=428632&ruta=/documents/docInvestigadores/428632/imagenes/JUANA%20DIAZ.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. DIAZ ORTIZ JUANA SEBASTIANA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=428632" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=432830&ruta=/documents/docInvestigadores/432830/imagenes/WhatsApp%20Image%202025-03-30%20at%2019.17.39.jpeg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. GABRIEL GUEVARA ANARELA LIDUVINA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=432830" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=160614&ruta=/documents/docInvestigadores/160614/imagenes/JULLIA%201.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. GARCIA GUTIERREZ JULIA ELSA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=160614" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=148173&ruta=/documents/docInvestigadores/148173/imagenes/FOTO%20MAHL.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dr. HERNANDEZ LOPEZ MIGUEL ANGEL</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=148173" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=100292&ruta=/documents/docInvestigadores/100292/imagenes/junes%20flores%20franklin0002.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dr. JUNES FLORES FRANKLIN EDWARD</h5>
+                                <p class="text-sm text-gray-500 mb-4">Asociado Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=100292" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=107687&ruta=/documents/docInvestigadores/107687/imagenes/27331824_1498448746920250_3610261087589107476_n.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. LAOS DE AJALCRIÑA CARMEN ROSA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Docente Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=107687" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=87849&ruta=/documents/docInvestigadores/87849/imagenes/WhatsApp%20Image%202020-04-17%20at%205.46.00%20AM.jpeg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dr. LLANTO CANCHOS JOSE ANGEL</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=87849" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=273375&ruta=/documents/docInvestigadores/273375/imagenes/fotito.jpeg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. PALACIOS FUENTES NIDIA MAGALI</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=273375" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=238403&ruta=/documents/docInvestigadores/238403/imagenes/Vane.jpeg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. PUERTAS ANICAMA VANESSA FIORELLA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=238403" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=238808&ruta=/documents/docInvestigadores/238808/imagenes/LILIANA%20RAMOS.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. RAMOS WILSON LILIANA MYLENA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Asociado Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=238808" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=100081&ruta=/documents/docInvestigadores/100081/imagenes/foto.jpeg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dr. ROJAS BERNAOLA CIRILO JESUS</h5>
+                                <p class="text-sm text-gray-500 mb-4">Docente Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=100081" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=99061&ruta=/documents/docInvestigadores/99061/imagenes/20161207_093651.jpg&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. RUIZ REYES ROSA ELVIRA</h5>
+                                <p class="text-sm text-gray-500 mb-4">Docente Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=99061" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 text-center">
+                            <div class="bg-gray-100 p-4">
+                                <img src="https://ctivitae.concytec.gob.pe/appDirectorioCTI/UploadFotoPath.do?tipo=visualizar_archivo&id_investigador=65725&ruta=/documents/docInvestigadores/65725/imagenes/DSCF9076.JPG&content_type=image/jpeg" alt="Docente" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-white shadow-lg">
+                            </div>
+                            <div class="p-6">
+                                <h5 class="text-lg font-bold text-guinda-900">Dra. ZEGARRA ZEBALLOS MARIELA ROSARIO</h5>
+                                <p class="text-sm text-gray-500 mb-4">Auxiliar Principal</p>
+                                
+                                <a href="https://ctivitae.concytec.gob.pe/appDirectorioCTI/VerDatosInvestigador.do?id_investigador=65725" 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                class="inline-flex items-center px-3 py-2 border border-violet-600 text-violet-600 text-sm font-medium rounded-md hover:bg-violet-50 transition">
+                                    <i class="fas fa-user-graduate mr-2"></i> Ver CTi Vitae
+                                </a>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="layout-footer"></div>
+
+    <script src="../js/layout.js"></script>
+    <script>
+        // Cargar header/footer
+        cargarLayout('../');
+
+        // Lógica de Javascript para las Pestañas (Reemplaza al useState de React)
+        function cambiarTab(tabName) {
+            // 1. Ocultar todos los contenidos
+            document.getElementById('tab-autoridades').classList.remove('active');
+            document.getElementById('tab-docentes').classList.remove('active');
+            
+            // 2. Desactivar estilos de botones
+            document.getElementById('btn-autoridades').classList.remove('active', 'border-guinda-600', 'text-guinda-800');
+            document.getElementById('btn-docentes').classList.remove('active', 'border-guinda-600', 'text-guinda-800');
+
+            // 3. Mostrar el seleccionado
+            document.getElementById('tab-' + tabName).classList.add('active');
+            document.getElementById('btn-' + tabName).classList.add('active');
+        }
+    </script>
+
+    <script src="/js/chat.js"></script>
+
+</body>
+</html>

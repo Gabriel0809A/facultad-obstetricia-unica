@@ -1,0 +1,113 @@
+/* css/estilos.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Alegreya:wght@400;700&display=swap');
+
+:root {
+    --color-guinda: #800000;
+    --color-guinda-claro: #a31515;
+    --color-gris-fondo: #f9fafb;
+    --color-texto: #1f2937;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--color-gris-fondo);
+    color: var(--color-texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER Y NAVBAR --- */
+header {
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: sticky; top: 0; z-index: 100;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img { height: 50px; }
+
+.menu { display: flex; gap: 2rem; list-style: none; }
+.menu a {
+    text-decoration: none;
+    color: #4b5563;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+.menu a:hover { color: var(--color-guinda); }
+.menu a.activo { color: var(--color-guinda); font-weight: 700; border-bottom: 2px solid var(--color-guinda); }
+
+/* --- FOOTER --- */
+footer {
+    background-color: #111827;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+/* --- ESTILOS DE LA SECCIÓN NOSOTROS (Grid y Cards) --- */
+.hero-nosotros {
+    text-align: center;
+    padding: 4rem 1rem;
+}
+.subtitulo { color: var(--color-guinda); font-weight: bold; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 1px; }
+.titulo-principal { font-size: 2.5rem; margin-top: 0.5rem; margin-bottom: 2rem; font-family: 'Alegreya', serif; }
+
+/* Tabs (Pestañas) */
+.tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; border-bottom: 1px solid #e5e7eb; }
+.tab-btn {
+    background: none; border: none; padding: 1rem 2rem;
+    font-size: 1.1rem; cursor: pointer; color: #6b7280;
+    border-bottom: 3px solid transparent;
+}
+.tab-btn.active { color: var(--color-guinda); border-bottom-color: var(--color-guinda); font-weight: bold; }
+
+/* Grid de Tarjetas */
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem 4rem 1rem;
+}
+
+.card {
+    background: white; border-radius: 8px; overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s;
+    display: flex; flex-direction: column; text-align: center;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+
+.card-img-wrapper { background: #f3f4f6; padding: 1.5rem; }
+.card img { width: 128px; height: 128px; border-radius: 50%; object-fit: cover; border: 4px solid white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+
+.card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+.card h3 { color: var(--color-guinda); font-size: 1.1rem; margin-bottom: 0.5rem; }
+.card p { font-size: 0.9rem; color: #6b7280; margin-bottom: 1rem; }
+
+.btn-cti {
+    display: inline-block; padding: 0.5rem 1rem;
+    border: 1px solid var(--color-guinda); color: var(--color-guinda);
+    border-radius: 4px; text-decoration: none; font-size: 0.8rem;
+    margin-top: auto; transition: background 0.3s;
+}
+.btn-cti:hover { background: var(--color-guinda); color: white; }
+
+/* Utilidad para ocultar pestañas */
+.tab-content { display: none; animation: fadeIn 0.5s; }
+.tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+

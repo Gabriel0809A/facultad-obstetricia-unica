@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias - Facultad de Obstetricia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
+          extend: {
+            colors: {
+              guinda: { 50:'#fdf2f8', 100:'#fce7f3', 500:'#ec4899', 600:'#db2777', 700:'#be185d', 800:'#9d174d', 900:'#831843' },
+            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body class="flex flex-col min-h-screen bg-white font-sans">
+
+    <div id="layout-header"></div>
+
+    <main class="flex-grow">
+        <section id="noticias" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4">
+                
+                <div class="text-center mb-16">
+                    <span class="text-guinda-600 font-bold tracking-widest uppercase text-sm">Actualidad</span>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Noticias y Eventos</h3>
+                    <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                        Entérate de las últimas novedades, logros y actividades de nuestra comunidad académica.
+                    </p>
+                </div>
+
+                <div id="grid-noticias" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="layout-footer"></div>
+
+    <script src="../js/layout.js"></script>
+    <script>
+        // Usamos '../' porque estamos dentro de la carpeta 'secciones'
+        cargarLayout('../'); 
+    </script>
+
+    <script>
+        // 1. Array de Datos
+        const articles = [
+            {
+                date: "15 OCT",
+                category: "Investigación",
+                title: "Publicación en Revista Internacional",
+                description: "Docente de nuestra facultad publica un revolucionario estudio sobre diagnóstico prenatal temprano en la revista 'Global Health'.",
+                image: "../img/microscopio.png"
+            },
+            {
+                date: "02 OCT",
+                category: "Proyección Social",
+                title: "Semana de la Lactancia Materna",
+                description: "Con gran éxito culminó nuestra campaña de sensibilización y apoyo a la lactancia materna en diversos centros de salud de Ica.",
+                image: "https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                date: "25 SEP",
+                category: "Comunicado",
+                title: "Proceso de Admisión 2026-I",
+                description: "Se anuncian las fechas clave y el cronograma para el próximo examen de admisión. ¡Prepárate para ser parte de nuestra familia!",
+                image: "https://images.unsplash.com/photo-1527613426441-4da17471b66d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                date: "10 SEP",
+                category: "Vida Estudiantil",
+                title: "Juramentación del Nuevo Centro de Estudiantes",
+                description: "En una emotiva ceremonia, el nuevo Centro de Estudiantes de Obstetricia juramentó para el período 2025-2026.",
+                image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                date: "28 AGO",
+                category: "Convenios",
+                title: "Alianza Estratégica con ONG Internacional",
+                description: "Firmamos un convenio con 'Healthy Mothers, Healthy World' para desarrollar proyectos de salud comunitaria en zonas rurales.",
+                image: "https://images.unsplash.com/photo-1580281657527-47f249e8f4df?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                date: "15 AGO",
+                category: "Académico",
+                title: "Congreso Latinoamericano de Obstetricia",
+                description: "Nuestra delegación de estudiantes y docentes tuvo una destacada participación en el congreso celebrado en Medellín, Colombia.",
+                image: "../img/congreso_academico.png"
+            }
+        ];
+
+        // 2. Función para renderizar las noticias
+        function renderNoticias() {
+            const container = document.getElementById('grid-noticias');
+            container.innerHTML = ''; // Limpiamos por si acaso
+
+            articles.forEach(article => {
+                // Creamos el HTML de cada tarjeta usando Template Strings
+                const cardHTML = `
+                <article class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col hover:shadow-2xl transition duration-300 transform hover:-translate-y-1">
+                    <div class="relative h-48">
+                        <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover" />
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur text-guinda-800 px-3 py-1 rounded-lg text-sm font-bold shadow-sm">
+                            ${article.date}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="text-xs font-bold text-gray-400 uppercase">${article.category}</span>
+                        <h4 class="font-bold text-xl mb-3 text-gray-900 mt-1">${article.title}</h4>
+                        <p class="text-gray-600 text-sm mb-4 line-clamp-3 flex-grow">
+                            ${article.description}
+                        </p>
+                        <a href="#" class="text-guinda-600 font-bold text-sm hover:text-guinda-800 mt-auto transition-colors">
+                            LEER MÁS
+                        </a>
+                    </div>
+                </article>
+                `;
+                // Añadimos la tarjeta al contenedor
+                container.innerHTML += cardHTML;
+            });
+        }
+
+        // 3. Ejecutamos la función al cargar
+        renderNoticias();
+    </script>
+
+    <script src="/js/chat.js"></script>
+
+</body>
+</html>
+

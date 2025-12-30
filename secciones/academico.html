@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Académico - Facultad de Obstetricia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
+          extend: {
+            colors: {
+              guinda: { 50:'#fdf2f8', 100:'#fce7f3', 500:'#ec4899', 600:'#db2777', 700:'#be185d', 800:'#9d174d', 900:'#831843' },
+            },
+            fontFamily: { sans: ['Inter', 'sans-serif'] }
+          }
+        }
+      }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <style>
+        /* Lógica visual de las pestañas */
+        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
+        .tab-content.active { display: block; }
+        
+        /* Estilos de botones de pestañas principales */
+        .tab-btn { border-bottom: 3px solid transparent; }
+        .tab-btn.active { color: #9d174d; border-bottom-color: #9d174d; font-weight: 700; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-screen bg-white font-sans">
+
+    <div id="layout-header"></div>
+
+    <main class="flex-grow">
+        <section id="academico" class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4">
+                
+                <div class="text-center mb-12">
+                    <span class="text-guinda-600 font-bold tracking-widest uppercase text-sm">Formación Profesional</span>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mt-2">Área Académica</h3>
+                </div>
+
+                <div class="flex flex-wrap justify-center border-b border-gray-300 mb-8 gap-4">
+                    <button onclick="openTab('perfil')" id="btn-perfil" class="tab-btn active px-6 py-3 text-lg text-gray-600 hover:text-guinda-800 transition">Perfil del Egresado</button>
+                    <button onclick="openTab('malla')" id="btn-malla" class="tab-btn px-6 py-3 text-lg text-gray-600 hover:text-guinda-800 transition">Malla Curricular</button>
+                    <button onclick="openTab('campo')" id="btn-campo" class="tab-btn px-6 py-3 text-lg text-gray-600 hover:text-guinda-800 transition">Campo Laboral</button>
+                </div>
+                
+                <div id="tab-perfil" class="tab-content active">
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <div>
+                                <h4 class="text-2xl font-bold text-guinda-900 mb-4">El Obstetra de la UNICA: Un Profesional Integral</h4>
+                                <p class="text-gray-700 mb-6 leading-relaxed">
+                                    Formamos profesionales de la salud con una sólida base científica, humanística y ética, capaces de liderar la atención integral de la salud sexual y reproductiva de la mujer, familia y comunidad.
+                                </p>
+
+                                <div class="space-y-6">
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <i class="fas fa-user-check text-2xl text-violet-600"></i>
+                                            <h5 class="font-bold text-lg text-gray-800">Competencias Asistenciales y Clínicas</h5>
+                                        </div>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1 pl-4 text-sm">
+                                            <li>Brinda atención integral en salud sexual y reproductiva.</li>
+                                            <li>Maneja el embarazo, parto y puerperio de bajo riesgo.</li>
+                                            <li>Realiza acciones de prevención y promoción de la salud.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <i class="fas fa-chart-bar text-2xl text-violet-600"></i>
+                                            <h5 class="font-bold text-lg text-gray-800">Competencias en Gestión y Liderazgo</h5>
+                                        </div>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1 pl-4 text-sm">
+                                            <li>Planifica, organiza y evalúa servicios de salud.</li>
+                                            <li>Lidera equipos multidisciplinarios para la mejora continua.</li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <div class="flex items-center gap-3 mb-2">
+                                            <i class="fas fa-microscope text-2xl text-violet-600"></i>
+                                            <h5 class="font-bold text-lg text-gray-800">Investigación y Responsabilidad Social</h5>
+                                        </div>
+                                        <ul class="list-disc list-inside text-gray-600 space-y-1 pl-4 text-sm">
+                                            <li>Diseña y ejecuta proyectos de investigación científica.</li>
+                                            <li>Actúa con compromiso social, ética y respeto a la diversidad.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="rounded-lg overflow-hidden h-full min-h-[400px]">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Estudiantes" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-malla" class="tab-content">
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="text-2xl font-bold text-guinda-900 mb-6 text-center">Plan de Estudios</h4>
+                        
+                        <div class="grid md:grid-cols-3 gap-6 text-center mb-8">
+                            <div onclick="renderMalla('generales')" id="cycle-generales" class="p-4 border rounded-lg transition cursor-pointer hover:border-guinda-500">
+                                <div class="text-4xl mb-2 font-bold text-guinda-300 cycle-number">I-II</div>
+                                <h5 class="font-bold">Estudios Generales</h5>
+                                <p class="text-sm text-gray-500">Biología, Química, Matemática</p>
+                            </div>
+                            <div onclick="renderMalla('especialidad')" id="cycle-especialidad" class="p-4 border rounded-lg transition cursor-pointer hover:border-guinda-500">
+                                <div class="text-4xl mb-2 font-bold text-guinda-300 cycle-number">III-VIII</div>
+                                <h5 class="font-bold">Especialidad</h5>
+                                <p class="text-sm text-gray-500">Anatomía, Obstetricia, Ginecología</p>
+                            </div>
+                            <div onclick="renderMalla('internado')" id="cycle-internado" class="p-4 border rounded-lg transition cursor-pointer hover:border-guinda-500">
+                                <div class="text-4xl mb-2 font-bold text-guinda-300 cycle-number">IX-X</div>
+                                <h5 class="font-bold">Internado</h5>
+                                <p class="text-sm text-gray-500">Prácticas Hospitalarias</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h5 id="malla-titulo" class="text-xl font-bold text-gray-800 mb-4">Seleccione un ciclo</h5>
+                            <div class="border rounded-lg overflow-hidden overflow-x-auto">
+                                <table class="w-full text-left text-sm">
+                                    <thead class="bg-gray-800 text-white">
+                                        <tr>
+                                            <th class="p-4">Código</th>
+                                            <th class="p-4">Asignatura</th>
+                                            <th class="p-4 text-center">Créditos</th>
+                                            <th class="p-4">Pre-Requisito</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="malla-body" class="divide-y divide-gray-200">
+                                        </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-8">
+                            <button class="bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-700 transition flex items-center justify-center mx-auto gap-2">
+                                <i class="fas fa-book-open"></i> Descargar Malla Completa (PDF)
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-campo" class="tab-content">
+                    <div class="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
+                        <div class="text-center mb-12">
+                            <h4 class="text-2xl font-bold text-guinda-900 mb-4">Un Mundo de Oportunidades te Espera</h4>
+                            <p class="max-w-3xl mx-auto text-gray-600">
+                                Como Obstetra de la UNICA, tu campo de acción es vasto y lleno de oportunidades para crecer profesionalmente.
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <i class="fas fa-hospital text-3xl text-guinda-600"></i>
+                                    <h5 class="font-bold text-lg text-gray-800">Sector Público y Privado</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">Lidera la atención en hospitales, clínicas y centros de salud, garantizando partos seguros.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <i class="fas fa-users text-3xl text-guinda-600"></i>
+                                    <h5 class="font-bold text-lg text-gray-800">Salud Comunitaria</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">Diseña y ejecuta programas de salud sexual y reproductiva trabajando con la comunidad.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <i class="fas fa-flask text-3xl text-guinda-600"></i>
+                                    <h5 class="font-bold text-lg text-gray-800">Investigación y Ciencia</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">Contribuye al avance científico mejorando la salud materna a nivel nacional e internacional.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <i class="fas fa-graduation-cap text-3xl text-guinda-600"></i>
+                                    <h5 class="font-bold text-lg text-gray-800">Docencia</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">Forma a las futuras generaciones de obstetras en universidades y centros de capacitación.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <i class="fas fa-heart-pulse text-3xl text-guinda-600"></i>
+                                    <h5 class="font-bold text-lg text-gray-800">Gestión en Salud</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">Ocupa cargos directivos liderando equipos para optimizar la atención a los pacientes.</p>
+                            </div>
+                            <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-transform duration-300">
+                                <div class="flex items-center gap-4 mb-3">
+                                    <i class="fas fa-globe text-3xl text-guinda-600"></i>
+                                    <h5 class="font-bold text-lg text-gray-800">Internacional</h5>
+                                </div>
+                                <p class="text-gray-600 text-sm">Colabora con ONGs (OPS/OMS, UNICEF) en proyectos de cooperación global.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="layout-footer"></div>
+
+    <script src="../js/layout.js"></script>
+    <script>
+        // 1. Cargar Navbar y Footer
+        cargarLayout('../');
+
+        // ==========================================
+        // 2. DATOS DE LA MALLA CURRICULAR
+        // (Copiados de tu código React)
+        // ==========================================
+        const curriculumData = {
+            generales: {
+                title: 'Ciclos I - II: Estudios Generales',
+                courses: [
+                    { code: 'OB101', name: 'Biología Celular y Molecular', credits: 4, prerequisite: 'Ninguno' },
+                    { code: 'OB102', name: 'Química General y Orgánica', credits: 4, prerequisite: 'Ninguno' },
+                    { code: 'OB103', name: 'Matemática Básica', credits: 3, prerequisite: 'Ninguno' },
+                    { code: 'OB104', name: 'Lenguaje y Comunicación', credits: 3, prerequisite: 'Ninguno' },
+                    { code: 'OB105', name: 'Actividades Formativas', credits: 2, prerequisite: 'Ninguno' },
+                ]
+            },
+            especialidad: {
+                title: 'Ciclos III - VIII: Estudios de Especialidad',
+                courses: [
+                    { code: 'OB301', name: 'Anatomía Humana', credits: 5, prerequisite: 'OB101' },
+                    { code: 'OB401', name: 'Fisiología Humana', credits: 5, prerequisite: 'OB301' },
+                    { code: 'OB501', name: 'Obstetricia I', credits: 6, prerequisite: 'OB401' },
+                    { code: 'OB601', name: 'Ginecología', credits: 6, prerequisite: 'OB501' },
+                    { code: 'OB701', name: 'Salud Pública', credits: 4, prerequisite: 'OB501' },
+                ]
+            },
+            internado: {
+                title: 'Ciclos IX - X: Internado',
+                courses: [
+                    { code: 'OB901', name: 'Internado en Obstetricia', credits: 20, prerequisite: 'Aprob. VIII Ciclo' },
+                    { code: 'OB902', name: 'Internado Comunitario', credits: 20, prerequisite: 'Aprob. VIII Ciclo' },
+                ]
+            }
+        };
+
+        // ==========================================
+        // 3. LÓGICA DE PESTAÑAS PRINCIPALES
+        // ==========================================
+        function openTab(tabName) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            // Quitar clase active de botones
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            
+            // Mostrar seleccionado
+            document.getElementById('tab-' + tabName).classList.add('active');
+            document.getElementById('btn-' + tabName).classList.add('active');
+        }
+
+        // ==========================================
+        // 4. LÓGICA DE LA MALLA (Tabla Dinámica)
+        // ==========================================
+        function renderMalla(cycleKey) {
+            const data = curriculumData[cycleKey];
+            const tbody = document.getElementById('malla-body');
+            
+            // 1. Actualizar Título
+            document.getElementById('malla-titulo').innerText = data.title;
+
+            // 2. Limpiar tabla actual
+            tbody.innerHTML = '';
+
+            // 3. Generar filas nuevas
+            data.courses.forEach(course => {
+                const row = `
+                    <tr class="hover:bg-gray-50 transition">
+                        <td class="p-4 font-mono font-bold text-guinda-700">${course.code}</td>
+                        <td class="p-4 font-medium text-gray-800">${course.name}</td>
+                        <td class="p-4 text-center text-gray-600">${course.credits}</td>
+                        <td class="p-4 text-gray-500 text-sm">${course.prerequisite}</td>
+                    </tr>
+                `;
+                tbody.innerHTML += row;
+            });
+
+            // 4. Actualizar estilos de los botones (tarjetas) de ciclo
+            ['generales', 'especialidad', 'internado'].forEach(key => {
+                const card = document.getElementById('cycle-' + key);
+                const number = card.querySelector('.cycle-number');
+                
+                if (key === cycleKey) {
+                    // Activo
+                    card.className = "p-4 border rounded-lg transition cursor-pointer bg-pink-50 border-guinda-200 shadow-inner";
+                    number.className = "text-4xl mb-2 font-bold text-guinda-600 cycle-number";
+                } else {
+                    // Inactivo
+                    card.className = "p-4 border rounded-lg transition cursor-pointer hover:border-guinda-500";
+                    number.className = "text-4xl mb-2 font-bold text-guinda-300 cycle-number";
+                }
+            });
+        }
+
+        // Cargar por defecto la especialidad (como en tu React)
+        renderMalla('especialidad');
+
+        // =========================================================
+        // 4. SOLUCIÓN FINAL: SIMULACIÓN DE CLIC
+        // =========================================================
+        window.addEventListener('load', function() {
+            // Leemos la URL (ej: #campo)
+            const hash = window.location.hash.replace('#', '');
+            
+            // Validamos que sea una de las opciones reales
+            if (hash === 'malla' || hash === 'campo' || hash === 'perfil') {
+                
+                // Buscamos el BOTÓN correspondiente
+                const btnObjetivo = document.getElementById('btn-' + hash);
+                
+                if (btnObjetivo) {
+                    // Esperamos un instante (50ms) para asegurar que todo esté cargado visualmente
+                    setTimeout(() => {
+                        // ¡HACEMOS CLIC AUTOMÁTICO!
+                        // Esto obliga a que se ejecute openTab() con todas sus consecuencias.
+                        btnObjetivo.click(); 
+                    }, 50);
+                }
+            }
+        });
+    </script>
+
+    <script src="/js/chat.js"></script>
+
+</body>
+</html>
