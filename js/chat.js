@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ============================================================
-    // 4. LÓGICA DE ENVÍO (CONEXIÓN API REAL)
+    // 4. LÓGICA DE ENVÍO (CONEXIÓN API)
     // ============================================================
     async function sendMessage() {
         const text = chatInput.value.trim();
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } catch (error) {
             console.error("Error API:", error);
             removeTypingIndicator(typingId);
-            const errorMsg = "⚠️ Error conectando con el servidor. Verifica que el Backend esté corriendo.";
+            const errorMsg = "⚠️ Error de conexión con el servidor.";
             renderMessage(errorMsg, 'bot');
             saveToHistory(errorMsg, 'bot');
         }
