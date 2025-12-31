@@ -4,7 +4,6 @@
   "description": "Chatbot con IA para la Facultad de Obstetricia",
   "type": "module",
   "scripts": {
-    "dev": "vercel dev"
   },
   "keywords": [],
   "author": "Gabriel0809A",
