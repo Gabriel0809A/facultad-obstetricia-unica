@@ -245,7 +245,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================================
     function speakText(text) {
         if (!synth) return;
-        const cleanText = text.replace(/([\uD800-\uDBFF][\uDC00-\uDFFF]|[*#_])/g, ''); 
+        const cleanText = text.replace(/([\u2700-\u27BF]|[\uD800-\uDBFF][\uDC00-\uDFFF]|[*#_])/g, ''); 
         
         const utterance = new SpeechSynthesisUtterance(cleanText);
         utterance.lang = 'es-PE'; 
