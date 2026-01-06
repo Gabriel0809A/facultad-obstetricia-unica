@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const typingId = showTypingIndicator();
 
         try {
-            // TRUCO: Verificamos si ya hay mensajes previos en el historial
+            // Verificamos si ya hay mensajes previos en el historial
             const historialPrevio = JSON.parse(sessionStorage.getItem(HISTORY_KEY) || '[]');
             const reglaSaludo = historialPrevio.length > 0 
                 ? "YA ESTAMOS CONVERSANDO: NO saludes con 'Hola' otra vez. Ve directo a la respuesta." 

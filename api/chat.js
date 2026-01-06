@@ -1,18 +1,18 @@
 export const config = {
-    runtime: 'edge', // ¡Velocidad máxima!
+    runtime: 'edge', 
 };
 
 export default async function handler(req) {
     // 1. GESTIÓN DE CORS (Permisos para que funcione en localhost y web)
     // Definimos los permisos
     const headers = {
-        'Access-Control-Allow-Origin': '*', // En producción puedes poner tu dominio en lugar de '*'
+        'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type',
         'Content-Type': 'application/json'
     };
 
-    // Si es una petición OPTIONS (el navegador preguntando permisos), respondemos OK
+    // Si es una petición OPTIONS (el navegador preguntando permisos)
     if (req.method === 'OPTIONS') {
         return new Response(null, { status: 200, headers });
     }
@@ -57,7 +57,7 @@ export default async function handler(req) {
         // 6. Devolvemos la respuesta con los headers correctos
         return new Response(JSON.stringify(data), {
             status: 200,
-            headers: headers // Importante devolver los headers aquí también
+            headers: headers 
         });
 
     } catch (error) {
