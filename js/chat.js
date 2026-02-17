@@ -17,9 +17,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar el archivo de conocimiento (Contexto)
     async function cargarConocimiento() {
         try {
-            const res = await fetch('/conocimiento.txt'); 
+            const res = await fetch('/conocimiento.json'); 
             if (res.ok) {
-                CONOCIMIENTO_FACULTAD = await res.text();
+                CONOCIMIENTO_FACULTAD = await res.json();
                 console.log("Cerebro cargado correctamente.");
             } else {
                 console.warn("El archivo existe pero no se pudo leer.");

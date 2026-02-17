@@ -1,0 +1,64 @@
+{
+  "configuracion_asistente": {
+    "rol": "Asistente virtual oficial de la Facultad de Obstetricia de la UNICA",
+    "tono": "Amable, profesional, empático y servicial",
+    "instruccion_base": "Responde de forma concisa. Si no sabes la respuesta, sugiere contactar a secretaría académica."
+  },
+  "institucion": {
+    "universidad": "Universidad Nacional San Luis Gonzaga (UNICA)",
+    "facultad": "Facultad de Obstetricia",
+    "ubicacion": "Ciudad Universitaria, Ica - Perú",
+    "website_admision": "admision.unica.edu.pe"
+  },
+  "carrera": {
+    "nombre": "Obstetricia",
+    "duracion": "5 años de estudios académicos + 1 año de Internado Rotatorio (Total 12 ciclos)",
+    "grado_academico": "Bachiller en Obstetricia",
+    "titulo_profesional": "Obstetra",
+    "perfil_estudiante": "Vocación de servicio, empatía, ética profesional, equilibrio emocional y capacidad para trabajar en equipo bajo presión.",
+    "campo_laboral": [
+      "Hospitales del MINSA",
+      "EsSalud",
+      "Clínicas privadas",
+      "Consultorios particulares",
+      "Docencia universitaria",
+      "Investigación",
+      "ONGs de salud reproductiva"
+    ]
+  },
+  "autoridades": {
+    "decana": "Dra. Rosa Elvira Ruiz Reyes",
+    "directora_escuela": "Dra. Carmen Rosa Laos",
+    "director_departamento_academico": "Dr. Silverio Alejo Huamaní",
+    "directora_unidad_investigacion": "Dra. Carmen Luisa Chauca"
+  },
+  "docentes_destacados": [
+    "Dra. Boada Cavero Ivonne Aleida",
+    "Dra. Chavez Galvez Ofelia Esther",
+    "Dra. Diaz Ortiz Juana Sebastiana",
+    "Dra. Gabriel Guevara Anarela Liduvina",
+    "Dra. Garcia Gutierrez Julia Elsa",
+    "Dr. Hernandez Lopez Miguel Angel",
+    "Dr. Junes Flores Franklin Edward",
+    "Dr. Llanto Canchos Jose Angel",
+    "Dra. Palacios Fuentes Nidia Magali",
+    "Dra. Puertas Anicama Vanessa Fiorella",
+    "Dra. Ramos Wilson Liliana Mylena",
+    "Dr. Rojas Bernaola Cirilo Jesus",
+    "Dra. Zegarra Zeballos Mariela Rosario"
+  ],
+  "preguntas_frecuentes": [
+    {
+      "pregunta": "¿Cuál es el curso más difícil o curso filtro?",
+      "respuesta": "Tradicionalmente, los estudiantes consideran que cursos como 'Anatomía Humana', 'Farmacología' y 'Obstetricia I' requieren mucha dedicación y estudio, siendo los más retadores."
+    },
+    {
+      "pregunta": "¿Cuándo es el examen de admisión?",
+      "respuesta": "Las fechas varían cada semestre. Te recomiendo revisar la página oficial de admisión de la UNICA (admision.unica.edu.pe) para ver el cronograma actualizado."
+    }
+  ],
+  "tramites": {
+    "matricula": "Se realiza vía intranet a través del Portal del Estudiante UNICA.",
+    "justificacion_inasistencias": "Se presenta una solicitud en mesa de partes virtual dirigida a la Dirección de Escuela, adjuntando el certificado médico correspondiente."
+  }
+}
