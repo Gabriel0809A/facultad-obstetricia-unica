@@ -62,7 +62,7 @@ function cargarLayout(rutaBase) {
             </nav>
 
             <div class="hidden md:block">
-                <a href="https://aulavirtual.unica.edu.pe" target="_blank" class="bg-[#9d174d] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#831843] transition shadow-md flex items-center gap-2 transform hover:-translate-y-0.5 duration-200">
+                <a href="https://facuobstetricia.milaulas.com/?redirect=0" target="_blank" class="bg-[#9d174d] text-white px-6 py-3 rounded-lg font-bold text-sm hover:bg-[#831843] transition shadow-md flex items-center gap-2 transform hover:-translate-y-0.5 duration-200">
                     <i class="fas fa-chalkboard-user text-lg"></i> 
                     Aula Virtual
                 </a>
@@ -81,7 +81,7 @@ function cargarLayout(rutaBase) {
                 <a href="${rutaBase}secciones/academico.html" class="${getLinkClass(esAcademico, true)}">Académico</a>
                 <a href="${rutaBase}secciones/noticias.html" class="${getLinkClass(esNoticias, true)}">Noticias</a>
                 
-                <a href="https://aulavirtual.unica.edu.pe" target="_blank" class="block w-full text-center mt-4 bg-[#9d174d] text-white px-5 py-3 rounded-lg hover:bg-[#831843] font-bold">
+                <a href="https://facuobstetricia.milaulas.com/?redirect=0" target="_blank" class="block w-full text-center mt-4 bg-[#9d174d] text-white px-5 py-3 rounded-lg hover:bg-[#831843] font-bold">
                     <i class="fas fa-chalkboard-user mr-2"></i> Aula Virtual
                 </a>
             </div>
@@ -114,7 +114,7 @@ function cargarLayout(rutaBase) {
                     <li><a href="${rutaBase}secciones/nosotros.html" class="hover:text-guinda-400 transition">Nosotros</a></li>
                     <li><a href="${rutaBase}secciones/academico.html" class="hover:text-guinda-400 transition">Académico</a></li>
                     <li><a href="${rutaBase}secciones/noticias.html" class="hover:text-guinda-400 transition">Noticias</a></li>
-                    <li><a href="https://aulavirtual.unica.edu.pe" target="_blank" class="hover:text-guinda-400 transition">Aula Virtual</a></li>
+                    <li><a href="https://facuobstetricia.milaulas.com/?redirect=0" target="_blank" class="hover:text-guinda-400 transition">Aula Virtual</a></li>
                 </ul>
             </div>
 
